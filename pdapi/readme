@@ -1,0 +1,10 @@
+v1: User model - db sqlite
+
+rails new pdapi --api --skip-javascript --skip-test --skip-action-mailer --skip-action-mailbox  
+
+https://guides.rubyonrails.org/command_line.html
+
+rails g scaffold User name:string 
+
+gem install debug 
+
