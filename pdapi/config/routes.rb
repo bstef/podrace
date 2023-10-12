@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
-    get '/profile', to: 'users#show'
-    get '/users', to: 'users#index'
-    post '/users', to: 'users#create'
+  namespace :api do
+    namespace :v1 do 
+    resources :users, :pods
+      get '/profile', to: 'users#show'
+      get '/users', to: 'users#index'
+      post '/users', to: 'users#create'
+    end
+  end
 end
