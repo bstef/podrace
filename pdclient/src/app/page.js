@@ -1,7 +1,8 @@
 "use client"
 
-
 import {  useState, useEffect } from 'react'
+import { AddUser } from '@/app/add-user.js'
+
 
 export default function Home() {
     const [firstUser, setFirstUser] = useState([])
@@ -29,8 +30,13 @@ export default function Home() {
   },[]) 
   
     return (
+      <main>
+      <h1>This is {firstUser.name}</h1>
 
-      <>This is {firstUser.name}</>
+      <span><AddUser /></span>
+      </main>
+      
+      
 
     )
     }
