@@ -1,3 +1,4 @@
+
 "use client"
 
 // import { useState } from "react";
@@ -17,7 +18,7 @@ export function AddUser() {
   return (
 
 
-    <form action={createUser}>
+    <form action={createUser} >
       <div className="join ">
             <div>
               <input id='name-id' type="text" name='name' className="input input-bordered join-item" placeholder="Name"/>
@@ -37,13 +38,3 @@ export function AddUser() {
     )
 }
 
-// action={createUser}
-
-    // <container>
-    // <form  method="POST">
-    //   <input type="text" name="name" />
-    //   <input type="email" name="email" />
-    //   <input type="password" name="password" />
-    //   <button type="submit">Create Account</button>
-    // </form>
-    // </container>
