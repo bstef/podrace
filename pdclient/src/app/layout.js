@@ -1,7 +1,6 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import {NavBar} from '@/app/functions.js'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'PodRace',
@@ -10,8 +9,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html>
+      <body>
+        <div className="hero min-h-screen bg-base-200 ">
+          <div className="fixed top-0 left-0 right-0"><NavBar/></div>
+          <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="text-center ">
+              {children}
+            </div>
+          </div>
+        </div>
+      </body>
     </html>
   )
 }
