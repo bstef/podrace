@@ -10,7 +10,7 @@ export function DisplayUsers(){
   useEffect(() => {  
 
       const getData = async () => {
-      const res = await fetch(`/api/user`);
+      const res = await fetch(`/api/random_user`);
       const data = await res.json() 
       setFirstUser(data.data)
       }

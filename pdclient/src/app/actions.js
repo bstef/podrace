@@ -1,5 +1,6 @@
 
 "use server"
+import { redirect } from 'next/navigation'
 
 export async function createUser(formData) {
 
@@ -20,25 +21,7 @@ export async function createUser(formData) {
 
     const data = await res.json()    
 
-    NextResponse.json({ data })
-
-    
+    redirect("/")
 
   }
 
-  export async function fetchUsers (){
-
-   try {
-
-    const randomId = Math.floor(Math.random() * (5 - 1) + 1) / 1;
-
-    const res = await fetch(`http://localhost:3000/api/v1/users/${randomId}`)       
-
-    const data = await res.json()
-
-    
-    NextResponse.json({ data })
-
-   }catch(error){console.log(error)}
-
-  }
