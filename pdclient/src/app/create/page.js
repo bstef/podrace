@@ -1,6 +1,6 @@
 "use client"
 
-import { AddUser } from '@/app/functions.js'
+import { AddUser } from '@/lib/functions.js'
 
 
 export default function CreateUser() {

@@ -1,5 +1,5 @@
 import './globals.css'
-import {NavBar} from '@/app/functions.js'
+import {NavBar} from '@/components/navbar'
 
 
 export const metadata = {

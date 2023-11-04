@@ -1,6 +1,6 @@
 "use client"
 
-import { DisplayUsers} from '@/app/functions.js'
+import { DisplayUsers} from '@/lib/functions.js'
 
 
 export default function Home({}) {
