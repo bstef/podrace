@@ -6,22 +6,36 @@ import { createUser } from "@/app/actions"
 
 
 export function DisplayUsers(){
-  const [firstUser, setFirstUser] = useState([])
+  const [data, setData] = useState([])
+  const [isLoading, setLoading] = useState(true)
+  const [check, setCheck] = useState(0)
+  
+  function fetchUsers(){
+      fetch(`/api/random_user`)
+      .then((res) => res.json())
+      .then((data) => {
+      setData(data.data)
+      setLoading(false)
+       })
+  }
+  
   useEffect(() => {  
+    
+     
+    const id = setInterval(() => {
+                  fetchUsers()
+                  setCheck(check + 1)
 
-      const getData = async () => {
-      const res = await fetch(`/api/random_user`);
-      const data = await res.json() 
-      setFirstUser(data.data)
-      }
-    setInterval(getData, 5000)
-  },[]) 
+                }, 4000);
+    return () => clearInterval(id);            
+  },[check])   
+
   
     return (
 
 
     <div className= "columns-1" >
-      <p className="text-5xl font-bold text-orange-500 ms-0" >{firstUser.name}</p>
+      <p className="text-5xl font-bold text-orange-500 ms-0" >{data.name}</p>
     </div>
                   
 

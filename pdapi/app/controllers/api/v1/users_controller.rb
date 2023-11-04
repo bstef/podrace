@@ -1,10 +1,9 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy ]
-
   # GET /users
     def index
       users = User.all
-  
+
       render json: users
     end
 
@@ -23,6 +22,16 @@ class Api::V1::UsersController < ApplicationController
         render json: { error: 'failed to create user' }, status: :not_acceptable
       end
   end
+
+# GET /users/random
+
+  def setRandomUser
+    randomId = User.randomUser
+    @user = User.find(randomId)
+    render json: @user, status: :accepted
+  end
+
+
 
   # PATCH/PUT /users/1
   def update
