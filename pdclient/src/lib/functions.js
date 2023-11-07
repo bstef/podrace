@@ -2,7 +2,7 @@
 "use client"
 import {  useState, useEffect } from 'react'
 
-import { createUser } from "@/lib/actions"
+import { createUser, deleteUser } from "@/lib/actions"
 
 
 export function DisplayUsers(){
@@ -11,7 +11,7 @@ export function DisplayUsers(){
   const [check, setCheck] = useState(0)
   
   function fetchUsers(){
-      fetch(`/api/random_user`)
+      fetch(`/api/users/random_user`)
       .then((res) => res.json())
       .then((data) => {
       setData(data.data)
@@ -71,6 +71,71 @@ export function AddUser() {
     )
 }
 
+export function removeUser(id){
+ 
+  console.log(id)
 
+  return (
+  <form action={deleteUser} method='DELETE'>
+    <div className="form-control">
+      <input className='btn btn-sm' type='button' name='id' value='delete'></input>
+    </div>
+  </form>)
+
+}
+
+export function ListUsers(){
+  const [data, setData] = useState([])
+  
+  useEffect(() => { 
+
+      fetch(`/api/list`)
+        .then((res) => res.json())
+        .then((data) => {
+        setData(data.data)
+        console.log(data)
+        })
+  
+
+   },[])
+
+    return (
+
+      <div className="overflow-x-auto">
+        <table className="table table-zebra ">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Pod</th>
+              <th>Attack</th>
+            </tr>
+          </thead>
+            <>{data.map((user) => (
+          
+              <tbody>
+                {/* row 1 */}
+                <tr className='m-6'>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>Container</td>
+                  <td>Flare</td>
+                  <td><>{removeUser(user.id)}</></td>
+                  
+                </tr>
+
+              </tbody>
+            ))}</>
+        </table>
+      </div>
+
+
+
+
+
+                
+    )
+}
 
 

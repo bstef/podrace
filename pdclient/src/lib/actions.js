@@ -25,3 +25,34 @@ export async function createUser(formData) {
 
   }
 
+export async function deleteUser(formData) {
+
+  // const deleteRacer = {
+  //   method: 'DELETE',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Accept: 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     id: {
+  //       id:formData.get("value")
+  //     }
+  //   })
+  // }
+
+
+
+
+  
+
+  console.log('hs')
+
+    // const res = await fetch(`http://localhost:3000/api/v1/users`, deleteRacer)       
+
+    // const data = await res.json()    
+
+    
+
+  }
+
+
