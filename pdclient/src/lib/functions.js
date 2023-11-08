@@ -1,8 +1,8 @@
 
 "use client"
 import {  useState, useEffect } from 'react'
-import Link from 'next/link'
-import { createUser } from "@/app/actions"
+
+import { createUser, deleteUser } from "@/lib/actions"
 
 
 export function DisplayUsers(){
@@ -26,7 +26,7 @@ export function DisplayUsers(){
                   fetchUsers()
                   setCheck(check + 1)
 
-                }, 4000);
+                }, 5000);
     return () => clearInterval(id);            
   },[check])   
 
@@ -71,21 +71,70 @@ export function AddUser() {
     )
 }
 
+export function removeUser(id){
 
-export function NavBar(){
-  return(
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
-        <Link href='/' className="btn btn-ghost normal-case text-3xl text-orange-500">PodRace</Link>
-      </div>
-      <div className="navbar-end">
-            <Link href="/create">
-            <button className="btn btn-wide bg-orange-500 text-white">Join the Race</button>
-            </Link>
-      </div>
+
+  return (
+  <form action={deleteUser} method='DELETE'>
+    <div className="form-control">
+      <input className='btn btn-sm' type='button' name='id' value='delete'></input>
     </div>
+  </form>)
 
-  )
+}
+
+export function ListUsers(){
+  const [data, setData] = useState([])
+  
+  useEffect(() => { 
+
+      fetch(`/api/list`)
+        .then((res) => res.json())
+        .then((data) => {
+        setData(data.data)
+        console.log(data)
+        })
+  
+
+   },[])
+
+    return (
+
+      <div className="overflow-x-auto">
+        <table className="table table-zebra ">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Pod</th>
+              <th>Attack</th>
+            </tr>
+          </thead>
+            <>{data.map((user) => (
+          
+              <tbody>
+                {/* row 1 */}
+                <tr className='m-6'>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>Container</td>
+                  <td>Flare</td>
+                  <td><>{removeUser(user.id)}</></td>
+                  
+                </tr>
+
+              </tbody>
+            ))}</>
+        </table>
+      </div>
+
+
+
+
+
+                
+    )
 }
 
 
