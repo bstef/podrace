@@ -29,7 +29,6 @@ class Api::V1::UsersController < ApplicationController
     randomId = User.randomUser
     @user = User.find(randomId)
     render json: @user, status: :accepted
-    User.randomHealth
   end
 
 
