@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     belongs_to :pod
-    has_many :events
+    has_many :events_users
+    has_and_belongs_to_many :events, through: :events_users
 
     def self.randomUser
 

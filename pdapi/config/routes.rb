@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       post '/users', to: 'users#destroy'
     end
     namespace :v2 do
-    resources :users, :pods, :events
+    resources :users, :pods, :events, :events_users
       get '/svc_user/users', to: 'users#index'
       post '/svc_user/users', to: 'users#create'
       get '/svc_user/user/random', to: 'users#setRandomUser'

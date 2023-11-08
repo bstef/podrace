@@ -1,9 +1,38 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'smarter_csv'
+
+
+file='db/pods.csv'
+
+options = {}
+SmarterCSV.process(file, options) do |chunk|
+  chunk.each do |data_hash|
+    Pod.create!( data_hash )
+  end
+end
+
+file='db/users.csv'
+
+options = {}
+SmarterCSV.process(file, options) do |chunk|
+  chunk.each do |data_hash|
+    User.create!( data_hash )
+  end
+end
+
+file='db/events.csv'
+
+options = {}
+SmarterCSV.process(file, options) do |chunk|
+  chunk.each do |data_hash|
+    Event.create!( data_hash )
+  end
+end
+
+file='db/usersevents.csv'
+
+options = {}
+SmarterCSV.process(file, options) do |chunk|
+  chunk.each do |data_hash|
+    EventsUser.create!( data_hash )
+  end
+end

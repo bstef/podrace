@@ -17,7 +17,7 @@ export async function createUser(formData) {
     })
   }
 
-    const res = await fetch(`http://localhost:3000/api/v1/users`,newRacer)       
+    const res = await fetch(`http://localhost:3000/api/v2/svc_user/users`,newRacer)       
 
     const data = await res.json()    
 
