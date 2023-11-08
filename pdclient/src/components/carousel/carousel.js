@@ -1,5 +1,5 @@
 
-import { DisplayUsers } from "@/lib/functions"
+import { RandomUsers } from "@/lib/functions"
 
 export function Carousel(){
 
@@ -10,7 +10,7 @@ export function Carousel(){
     <div className="modalconent">
         <span className="breakingtitle">Current racers</span>
         <marquee className="marquee" behavior="scroll" direction="left">
-        <DisplayUsers/>
+        <RandomUsers/>
         </marquee>
         <button id="readmorebutton"></button>
     </div>

@@ -5,7 +5,7 @@ import {  useState, useEffect } from 'react'
 import { createUser, deleteUser } from "@/lib/actions"
 
 
-export function DisplayUsers(){
+export function RandomUsers(){
   const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
   const [check, setCheck] = useState(0)

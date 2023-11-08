@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    belongs_to :pod
+    has_many :events
 
     def self.randomUser
 

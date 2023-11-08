@@ -1,3 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name 
+  belongs_to :pod
+  attributes :id, :name
+
 end
