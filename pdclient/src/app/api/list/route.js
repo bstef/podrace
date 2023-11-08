@@ -6,7 +6,7 @@ export async function GET (){
 
    try {
 
-    const res = await fetch(`http://localhost:3000/api/v2/svc_user/users`)       
+    const res = await fetch(`http://localhost:3000/api/v2/users`)       
 
     const data = await res.json()
 

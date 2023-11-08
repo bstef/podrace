@@ -31,7 +31,7 @@ class Api::V2::UsersController < ApplicationController
     render json: @user, status: :accepted
   end
 
-
+def
 
   # PATCH/PUT /users/1
   def update

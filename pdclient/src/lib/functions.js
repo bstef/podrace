@@ -10,34 +10,43 @@ export function RandomUsers(){
   const [isLoading, setLoading] = useState(true)
   const [check, setCheck] = useState(0)
   
-  function fetchUsers(){
-      fetch(`/api/random_user`)
-      .then((res) => res.json())
-      .then((data) => {
-      setData(data.data)
-      setLoading(false)
-       })
+ async function fetchUsers(){
+     const res = await fetch(`/api/random_user`)
+     const payload = await res.json() 
+      setData(payload.data)
+      console.log(typeof data.name == "undefined", 'from fetch')
+      typeof data.name == "undefined"? isLoading : setLoading(false)
+       
   }
   
   useEffect(() => {  
     
-     
+     console.log(isLoading)
     const id = setInterval(() => {
                   fetchUsers()
                   setCheck(check + 1)
-
+  console.log('from useEffect')
                 }, 5000);
     return () => clearInterval(id);            
   },[check])   
 
   
     return (
+    <div>
+      <div>{isLoading? 
+        
+        <h1>loading</h1>
 
+        : 
 
-    <div className= "columns-1" >
-      <p className="text-5xl font-bold text-orange-500 ms-0" >{data.name}</p>
+        <div className= "columns-1" >
+          <h2 className="" >{data.name} from {data.pod.name} </h2>
+
+        </div> 
+
+      }</div>
     </div>
-                  
+       
 
     )
 }
@@ -92,7 +101,6 @@ export function ListUsers(){
         .then((res) => res.json())
         .then((data) => {
         setData(data.data)
-        console.log(data)
         })
   
 
@@ -136,5 +144,7 @@ export function ListUsers(){
                 
     )
 }
+
+
 
 
