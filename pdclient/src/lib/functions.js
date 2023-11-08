@@ -11,7 +11,7 @@ export function DisplayUsers(){
   const [check, setCheck] = useState(0)
   
   function fetchUsers(){
-      fetch(`/api/users/random_user`)
+      fetch(`/api/random_user`)
       .then((res) => res.json())
       .then((data) => {
       setData(data.data)
@@ -26,7 +26,7 @@ export function DisplayUsers(){
                   fetchUsers()
                   setCheck(check + 1)
 
-                }, 4000);
+                }, 5000);
     return () => clearInterval(id);            
   },[check])   
 
@@ -72,8 +72,7 @@ export function AddUser() {
 }
 
 export function removeUser(id){
- 
-  console.log(id)
+
 
   return (
   <form action={deleteUser} method='DELETE'>

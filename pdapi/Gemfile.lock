@@ -93,6 +93,7 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dogstatsd-ruby (5.6.1)
     drb (2.1.1)
       ruby2_keywords
     erubi (1.12.0)
@@ -201,6 +202,7 @@ DEPENDENCIES
   active_model_serializers
   bootsnap
   debug
+  dogstatsd-ruby
   puma (>= 5.0)
   rails (~> 7.1.1)
   sqlite3 (~> 1.4)

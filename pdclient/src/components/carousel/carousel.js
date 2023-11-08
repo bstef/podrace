@@ -10,7 +10,7 @@ export function Carousel(){
     <div className="modalconent">
         <span className="breakingtitle">Current racers</span>
         <marquee className="marquee" behavior="scroll" direction="left">
-        Aldrick from Monitors with a call + 3
+        <DisplayUsers/>
         </marquee>
         <button id="readmorebutton"></button>
     </div>
