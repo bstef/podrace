@@ -39,7 +39,7 @@ export function RandomUsers(){
 
         : 
 
-        <div className= "columns-1" >
+        <div className= "" >
           <h2 className="" >{data.name} from {data.pod.name} </h2>
 
         </div> 

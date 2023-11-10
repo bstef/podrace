@@ -1,4 +1,4 @@
-
+/* 
 #mainmodal {
     position: fixed;
     font-family: Arial;
@@ -6,10 +6,11 @@
     left: 0;
     background: rgba(0, 0, 0, 0.8);
     z-index: 99999;
-    height: 100%;
-    width: 100%;
     text-align: center;
-}
+} */
+
+
+/* 
 .modalconent {
     position: absolute;
     top: 50%;
@@ -20,21 +21,6 @@
     padding: 50px;
 }
 
-.breakingtitle {
-	font-size: 50px;
-	background: black;
-	color: #FFD700;
-	padding: 10px;
-}
-
-#readmorebutton {
-	background: black;
-	color: #FFD700;
-	border-style: none;
-  padding: 20px;
-  font-size: 20px;
-}
-
 .marquee {
 	color: black;
 	letter-spacing: 2px;
@@ -42,3 +28,5 @@
 	padding: 30px;
 	font-size: 40px;
 }
+ */
+
