@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V2::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy ]
   # GET /users
     def index
@@ -31,7 +31,7 @@ class Api::V1::UsersController < ApplicationController
     render json: @user, status: :accepted
   end
 
-
+def
 
   # PATCH/PUT /users/1
   def update
